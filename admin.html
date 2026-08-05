@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>بوابة الإدارة | جامعة الحاضرة - فرع بنغازي</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#002045",
+                        "primary-container": "#1a365d",
+                        "secondary": "#735c00",
+                        "secondary-container": "#fed65b",
+                        "on-secondary-container": "#745c00",
+                        "surface": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e6eeff",
+                        "surface-container-high": "#dde9ff",
+                        "surface-container-highest": "#d5e3fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0d1c2f",
+                        "on-surface-variant": "#43474e",
+                        "outline-variant": "#c4c6cf",
+                        "outline": "#74777f",
+                        "background": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "success": "#1b5e20",
+                        "success-container": "#c8e6c9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "body": ["Cairo", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sidebar-item.active {
+            background-color: #1a365d;
+            color: #ffffff;
+            border-right: 4px solid #fed65b;
+        }
+        
+        /* Dark Mode overrides */
+        .dark body, .dark main {
+            background-color: #0b0f19 !important;
+            color: #f8fafc !important;
+        }
+        .dark header, .dark nav, .dark aside {
+            background-color: rgba(11, 15, 25, 0.9) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .bg-white, .dark .bg-surface-container-lowest, .dark .bg-surface, .dark .bg-surface-bright {
+            background-color: #121826 !important;
+            color: #f8fafc !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .text-primary, .dark h1, .dark h2, .dark h3, .dark h4 {
+            color: #adc7f7 !important;
+        }
+        .dark .text-on-surface-variant {
+            color: #94a3b8 !important;
+        }
+        .dark input, .dark select, .dark textarea {
+            background-color: #1e293b !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        .dark .bg-surface-container-low, .dark .bg-surface-container, .dark .bg-surface-container-high, .dark .bg-surface-container-highest {
+            background-color: #1e293b !important;
+            color: #f8fafc !important;
+        }
+        .dark .text-secondary {
+            color: #ffe088 !important;
+        }
+        .dark .border-secondary {
+            border-color: #ffe088 !important;
+        }
+        .dark .bg-secondary {
+            background-color: #735c00 !important;
+            color: #ffffff !important;
+        }
+        .dark .bg-primary {
+            background-color: #0b0f19 !important;
+            color: #f8fafc !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between">
+
+    <!-- ==================== LOGIN VIEW ==================== -->
+    <div id="login-view" class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-primary transition-opacity duration-300 opacity-0">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary-container opacity-30 blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-secondary opacity-10 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-md w-full space-y-8 z-10">
+            <div class="text-center">
+                <span class="material-symbols-outlined text-secondary-container text-6xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                <h2 class="mt-6 text-3xl font-extrabold text-white">بوابة الإدارة الإلكترونية</h2>
+                <p class="mt-2 text-sm text-surface-highest/80">جامعة الحاضرة - فرع بنغازي</p>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl space-y-6">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">تسجيل الدخول</h3>
+                    <p class="text-xs text-white/60">يرجى إدخال بيانات المسؤول للوصول للوحة التحكم</p>
+                </div>
+
+                <div id="login-error" class="hidden bg-error-container text-error p-3 rounded-xl text-sm font-semibold flex items-center gap-2">
+                    <span class="material-symbols-outlined">error</span>
+                    <span>اسم المستخدم أو كلمة المرور غير صحيحة!</span>
+                </div>
+
+                <form id="login-form" class="space-y-4" onsubmit="handleLogin(event)">
+                    <div class="space-y-1">
+                        <label class="text-xs text-white/80 font-bold block">اسم المستخدم</label>
+                        <div class="relative">
+                            <input id="username" type="text" required class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-secondary-container placeholder-white/30" placeholder="admin">
+                            <span class="material-symbols-outlined absolute left-3 top-3 text-white/40">person</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs text-white/80 font-bold block">كلمة المرور</label>
+                        <div class="relative">
+                            <input id="password" type="password" required class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-secondary-container placeholder-white/30" placeholder="••••••••">
+                            <span class="material-symbols-outlined absolute left-3 top-3 text-white/40">lock</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm text-white/80 pt-2">
+                        <div class="flex items-center gap-2">
+                            <input id="remember-me" type="checkbox" class="rounded border-white/20 bg-white/5 text-secondary-container focus:ring-0">
+                            <label for="remember-me" class="text-xs cursor-pointer">تذكرني على هذا الجهاز</label>
+                        </div>
+                        <a href="#" onclick="alert('بيانات الدخول الافتراضية للوحة التحكم هي:\nاسم المستخدم: admin\nكلمة المرور: admin')" class="text-xs text-secondary-container hover:underline">نسيت كلمة المرور؟</a>
+                    </div>
+
+                    <button type="submit" class="w-full bg-secondary-container text-on-secondary-container py-3.5 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300 transform active:scale-95 shadow-lg flex items-center justify-center gap-2 mt-4">
+                        <span>دخول للوحة التحكم</span>
+                        <span class="material-symbols-outlined text-xl">login</span>
+                    </button>
+                </form>
+            </div>
+            
+            <p class="text-center text-xs text-white/40">© 2026 جامعة الحاضرة. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+
+    <!-- ==================== DASHBOARD VIEW ==================== -->
+    <div id="dashboard-view" class="hidden flex-grow flex flex-col md:flex-row bg-background transition-opacity duration-300 opacity-0">
+        
+        <!-- Sidebar Navigation (Right side in RTL) -->
+        <aside class="w-full md:w-64 bg-primary text-white flex flex-col shrink-0 border-l border-outline-variant/10 shadow-xl">
+            <!-- Sidebar Header -->
+            <div class="p-6 border-b border-white/10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                <div>
+                    <h1 class="font-bold text-md leading-tight text-white">لوحة الإدارة</h1>
+                    <span class="text-xs text-surface-variant/70">فرع بنغازي</span>
+                </div>
+            </div>
+
+            <!-- Admin Profile Quick View -->
+            <div class="p-4 bg-primary-container/40 border-b border-white/5 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
+                    أ
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-white">المدير العام</h2>
+                    <span class="text-[10px] text-green-400 flex items-center gap-1 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                        متصل الآن
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="flex-grow p-4 space-y-2">
+                <button onclick="switchTab('overview')" id="tab-btn-overview" class="sidebar-item active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-sm font-semibold transition-all">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>نظرة عامة</span>
+                </button>
+                <button onclick="switchTab('applications')" id="tab-btn-applications" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-sm font-semibold hover:bg-white/5 transition-all">
+                    <span class="material-symbols-outlined">list_alt</span>
+                    <span>طلبات التسجيل</span>
+                    <span id="badge-total-count" class="mr-auto bg-secondary text-white text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                </button>
+                <a href="../_11/code.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-right text-sm font-semibold hover:bg-white/5 transition-all text-surface-variant/80">
+                    <span class="material-symbols-outlined">app_registration</span>
+                    <span>بوابة القبول للطلاب</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Footer / Logout -->
+            <div class="p-4 border-t border-white/10">
+                <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-error/15 text-red-300 hover:bg-error hover:text-white transition-all text-sm font-bold">
+                    <span class="material-symbols-outlined text-lg">logout</span>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow p-6 md:p-8 space-y-8 overflow-y-auto">
+            
+            <!-- Dashboard Top Header Bar -->
+            <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-outline-variant/30">
+                <div>
+                    <h2 class="text-2xl font-bold text-primary" id="page-title">نظرة عامة</h2>
+                    <p class="text-sm text-on-surface-variant" id="page-subtitle">مرحباً بك في لوحة تحكم إدارة طلبات جامعة الحاضرة</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleTheme()" class="flex items-center justify-center p-3 rounded-2xl bg-white border border-outline-variant/30 shadow-sm text-primary hover:bg-surface-container transition-all">
+                        <span class="material-symbols-outlined theme-toggle-icon">dark_mode</span>
+                    </button>
+                    <div class="flex items-center gap-3 bg-white p-3 rounded-2xl border border-outline-variant/30 shadow-sm text-sm">
+                        <span class="material-symbols-outlined text-secondary">calendar_today</span>
+                        <span id="live-date" class="font-semibold text-primary"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ==================== TABS CONTENT ==================== -->
+
+            <!-- TAB 1: OVERVIEW -->
+            <div id="tab-content-overview" class="space-y-8">
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-xs text-on-surface-variant font-bold">إجمالي الطلبات</span>
+                            <h3 class="text-3xl font-extrabold text-primary" id="stat-total">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-primary-container text-white rounded-xl flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-2xl">groups</span>
+                        </div>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-xs text-on-surface-variant font-bold">طلبات قيد الانتظار</span>
+                            <h3 class="text-3xl font-extrabold text-orange-500" id="stat-pending">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-2xl">pending_actions</span>
+                        </div>
+                    </div>
+                    <!-- Stat Card 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-xs text-on-surface-variant font-bold">الطلبات المقبولة</span>
+                            <h3 class="text-3xl font-extrabold text-green-600" id="stat-accepted">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-2xl">task_alt</span>
+                        </div>
+                    </div>
+                    <!-- Stat Card 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-xs text-on-surface-variant font-bold">طلبات مرفوضة / مؤجلة</span>
+                            <h3 class="text-3xl font-extrabold text-red-500" id="stat-rejected">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-2xl">cancel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Applications & Chart Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left: Recent List -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm lg:col-span-2 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-bold text-primary flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>
+                                آخر الطلبات المستلمة
+                            </h3>
+                            <button onclick="switchTab('applications')" class="text-xs text-secondary font-bold hover:underline">عرض جميع الطلبات</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-right text-sm">
+                                <thead>
+                                    <tr class="text-on-surface-variant border-b border-outline-variant/30 pb-3">
+                                        <th class="py-3 font-semibold">اسم الطالب</th>
+                                        <th class="py-3 font-semibold">الكلية المطلوبة</th>
+                                        <th class="py-3 font-semibold">تاريخ التقديم</th>
+                                        <th class="py-3 font-semibold text-center">الحالة</th>
+                                        <th class="py-3 font-semibold text-left">إجراء</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-admissions-tbody" class="divide-y divide-outline-variant/20">
+                                    <!-- Dynamic rows loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Right: Quick Analytics & Info -->
+                    <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col justify-between gap-6">
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-primary">توزيع الطلبات حسب التخصص</h3>
+                            <div class="space-y-3" id="college-chart-container">
+                                <!-- Chart Bars generated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/20 text-xs text-on-surface-variant leading-relaxed">
+                            <span class="font-bold text-primary block mb-1">تعليمات المراجعة الموصى بها:</span>
+                            1. التحقق من تطابق الرقم الوطني مع بيانات الهوية.<br>
+                            2. مراجعة سنة التخرج ومدى تطابقها مع شروط القبول.<br>
+                            3. للتواصل السريع، اضغط على زر الإجراء لفتح البريد الإلكتروني أو الاتصال الهاتفي مباشرة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: APPLICATIONS LIST -->
+            <div id="tab-content-applications" class="hidden space-y-6">
+                <!-- Filters & Search Panel -->
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm space-y-4">
+                    <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                        <!-- Search Box -->
+                        <div class="relative w-full md:w-96">
+                            <input id="search-input" oninput="filterApplications()" type="text" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-10 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-on-surface-variant/50" placeholder="ابحث باسم الطالب أو الرقم الوطني...">
+                            <span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant/60">search</span>
+                        </div>
+                        
+                        <!-- Filter Selects -->
+                        <div class="flex flex-wrap gap-3 w-full md:w-auto">
+                            <select id="college-filter" onchange="filterApplications()" class="bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-2.5 text-sm text-primary font-semibold focus:ring-primary focus:border-transparent">
+                                <option value="">جميع الكليات</option>
+                                <option value="كلية الهندسة والتقنية">كلية الهندسة والتقنية</option>
+                                <option value="كلية الاقتصاد والعلوم السياسية">كلية الاقتصاد والعلوم السياسية</option>
+                                <option value="كلية تقنية المعلومات">كلية تقنية المعلومات</option>
+                                <option value="كلية الآداب والعلوم">كلية الآداب والعلوم</option>
+                                <option value="كلية القانون">كلية القانون</option>
+                            </select>
+
+                            <select id="status-filter" onchange="filterApplications()" class="bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-2.5 text-sm text-primary font-semibold focus:ring-primary focus:border-transparent">
+                                <option value="">جميع الحالات</option>
+                                <option value="Pending">قيد الانتظار</option>
+                                <option value="Accepted">مقبول</option>
+                                <option value="Rejected">مرفوض</option>
+                                <option value="Study">قيد الدراسة والمراجعة</option>
+                            </select>
+
+                            <button onclick="addMockApplication()" class="px-4 py-2.5 bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-white rounded-xl text-sm font-bold flex items-center gap-1 transition-all">
+                                <span class="material-symbols-outlined text-lg">person_add</span>
+                                <span>إضافة طلب تجريبي</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Table Panel -->
+                <div class="bg-white rounded-2xl border border-outline-variant/30 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-sm">
+                            <thead>
+                                <tr class="bg-primary text-white border-b border-outline-variant/30">
+                                    <th class="p-4 font-bold text-xs tracking-wider">الرقم المرجعي</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider">اسم الطالب</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider">الرقم الوطني</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider">الكلية المطلوبة</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider">تاريخ التقديم</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider text-center">الحالة</th>
+                                    <th class="p-4 font-bold text-xs tracking-wider text-left">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applications-table-body" class="divide-y divide-outline-variant/20">
+                                <!-- Dynamic rows loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Table Empty State -->
+                    <div id="table-empty-state" class="hidden text-center py-16 px-4 space-y-3">
+                        <span class="material-symbols-outlined text-6xl text-on-surface-variant/30">folder_open</span>
+                        <h4 class="text-lg font-bold text-primary">لا توجد أي طلبات مطابقة للبحث</h4>
+                        <p class="text-sm text-on-surface-variant max-w-sm mx-auto">تأكد من كتابة الاسم بشكل صحيح أو جرب تغيير خيارات التصفية والفلاتر.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-primary border-t border-outline-variant/10 py-4 px-6 text-center text-xs text-white/50 z-20 shrink-0">
+        <div class="max-w-container-max mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <span>لوحة تحكم المسؤول | جامعة الحاضرة - فرع بنغازي</span>
+            <span>نظام القبول والتسجيل الإلكتروني الموحد © 2026</span>
+        </div>
+    </footer>
+
+
+    <!-- ==================== APPLICATION DETAILS MODAL ==================== -->
+    <div id="details-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-primary/70 backdrop-blur-sm" onclick="closeDetailsModal()"></div>
+        <div id="details-modal-card" class="bg-white rounded-3xl border border-outline-variant/30 shadow-2xl w-full max-w-3xl mx-4 z-10 transform scale-95 opacity-0 transition-all duration-300 relative flex flex-col max-h-[85vh]">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-outline-variant/30 bg-primary text-white rounded-t-3xl flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary-container">assignment_ind</span>
+                        <span>تفاصيل طلب الطالب</span>
+                    </h3>
+                    <p class="text-xs text-surface-variant/80 mt-1">الرقم المرجعي للطلب: <span id="detail-ref-id" class="font-mono font-bold tracking-widest text-secondary-container">ALH-XXXX</span></p>
+                </div>
+                <button onclick="closeDetailsModal()" class="text-white hover:text-secondary-container transition-colors">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 overflow-y-auto space-y-6 flex-grow">
+                <!-- Two Column Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Column 1: Personal Info -->
+                    <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/20 space-y-4">
+                        <h4 class="font-bold text-primary border-r-4 border-secondary pr-2 text-sm">المعلومات الشخصية</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-outline-variant/10 py-1.5"><span class="text-on-surface-variant">الاسم الكامل:</span> <span id="detail-name" class="font-bold text-primary"></span></div>
+                            <div class="flex justify-between border-b border-outline-variant/10 py-1.5"><span class="text-on-surface-variant">الرقم الوطني:</span> <span id="detail-national-id" class="font-bold text-primary"></span></div>
+                            <div class="flex justify-between border-b border-outline-variant/10 py-1.5"><span class="text-on-surface-variant">رقم الهاتف:</span> <span id="detail-phone" class="font-bold text-primary"></span></div>
+                            <div class="flex justify-between py-1.5"><span class="text-on-surface-variant">البريد الإلكتروني:</span> <span id="detail-email" class="font-bold text-primary break-all"></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Academic Info -->
+                    <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/20 space-y-4">
+                        <h4 class="font-bold text-primary border-r-4 border-secondary pr-2 text-sm">الرغبة والدراسة</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-outline-variant/10 py-1.5"><span class="text-on-surface-variant">الكلية المطلوبة:</span> <span id="detail-college" class="font-bold text-primary"></span></div>
+                            <div class="flex justify-between border-b border-outline-variant/10 py-1.5"><span class="text-on-surface-variant">سنة التخرج (الثانوية):</span> <span id="detail-grad-year" class="font-bold text-primary"></span></div>
+                            <div class="flex justify-between py-1.5"><span class="text-on-surface-variant">تاريخ التقديم:</span> <span id="detail-date" class="font-bold text-primary"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Attachments -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-primary border-r-4 border-secondary pr-2 text-sm">المرفقات والوثائق</h4>
+                    <div id="detail-attachments-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Generated attachments list here -->
+                    </div>
+                </div>
+
+                <!-- Section: Admin Actions & Notes -->
+                <div class="border-t border-outline-variant/30 pt-6 space-y-4">
+                    <h4 class="font-bold text-primary border-r-4 border-secondary pr-2 text-sm">مراجعة واتخاذ قرار بشأن الطلب</h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-on-surface-variant">تعديل حالة الطلب</label>
+                            <select id="detail-status-select" class="border border-outline-variant rounded-xl p-3 bg-surface text-primary font-bold focus:ring-2 focus:ring-primary focus:outline-none">
+                                <option value="Pending">قيد الانتظار</option>
+                                <option value="Accepted">مقبول</option>
+                                <option value="Rejected">مرفوض</option>
+                                <option value="Study">قيد الدراسة والمراجعة</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2 justify-end">
+                            <label class="text-xs font-bold text-on-surface-variant">إجراءات تواصل سريعة</label>
+                            <div class="flex gap-2">
+                                <a id="quick-email-btn" href="#" class="flex-grow bg-surface-container-high border border-outline-variant/40 hover:bg-primary hover:text-white text-primary rounded-xl py-3 px-2 font-bold text-center text-xs flex items-center justify-center gap-1 transition-all">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span>البريد الإلكتروني</span>
+                                </a>
+                                <a id="quick-call-btn" href="#" class="flex-grow bg-surface-container-high border border-outline-variant/40 hover:bg-secondary hover:text-white text-primary rounded-xl py-3 px-2 font-bold text-center text-xs flex items-center justify-center gap-1 transition-all">
+                                    <span class="material-symbols-outlined text-sm">call</span>
+                                    <span>اتصال بالهاتف</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 pt-2">
+                        <label class="text-xs font-bold text-on-surface-variant">ملاحظات داخلية للمسؤول (تُحفظ تلقائياً للرجوع إليها لاحقاً)</label>
+                        <textarea id="detail-notes" rows="3" class="border border-outline-variant rounded-xl p-3 focus:ring-2 focus:ring-primary bg-surface focus:outline-none text-sm placeholder-on-surface-variant/40" placeholder="مثال: تم مراجعة الأوراق، بانتظار إفادة التخرج الأصلية..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 border-t border-outline-variant/30 bg-surface-container-low flex justify-between items-center rounded-b-3xl">
+                <button onclick="deleteApplication()" class="text-xs text-red-500 hover:text-red-700 hover:underline flex items-center gap-1 font-semibold">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                    <span>حذف الطلب نهائياً</span>
+                </button>
+                <div class="flex gap-3">
+                    <button onclick="closeDetailsModal()" class="px-6 py-2.5 border border-outline-variant rounded-xl text-primary font-bold text-sm bg-white hover:bg-surface-container transition-colors">إلغاء</button>
+                    <button onclick="saveApplicationChanges()" class="px-8 py-2.5 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary-container hover:shadow-md transition-all">حفظ التغييرات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Set date in top bar
+        document.getElementById('live-date').innerText = new Date().toLocaleDateString('ar-LY', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // ------------------ SECURITY SYSTEM ------------------
+        // Check local storage session state on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const adminSession = sessionStorage.getItem('adminSession');
+            if (adminSession === 'active') {
+                const dashView = document.getElementById('dashboard-view');
+                dashView.classList.remove('hidden');
+                dashView.classList.remove('opacity-0');
+                document.getElementById('login-view').classList.add('hidden');
+            } else {
+                document.getElementById('login-view').classList.remove('opacity-0');
+            }
+            
+            // Seed database if empty
+            initMockDatabase();
+            
+            // Render
+            loadStats();
+            renderTable();
+            renderCharts();
+        });
+
+        function showLogin() {
+            const loginView = document.getElementById('login-view');
+            const dashView = document.getElementById('dashboard-view');
+            
+            dashView.classList.add('opacity-0');
+            setTimeout(() => {
+                dashView.classList.add('hidden');
+                loginView.classList.remove('hidden');
+                setTimeout(() => {
+                    loginView.classList.remove('opacity-0');
+                }, 50);
+            }, 300);
+            
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        function showDashboard() {
+            const loginView = document.getElementById('login-view');
+            const dashView = document.getElementById('dashboard-view');
+            
+            loginView.classList.add('opacity-0');
+            setTimeout(() => {
+                loginView.classList.add('hidden');
+                dashView.classList.remove('hidden');
+                setTimeout(() => {
+                    dashView.classList.remove('opacity-0');
+                }, 50);
+            }, 300);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const remember = document.getElementById('remember-me').checked;
+
+            if (user === 'admin' && pass === 'admin') {
+                sessionStorage.setItem('adminSession', 'active');
+                if (remember) {
+                    localStorage.setItem('adminRememberSession', 'active');
+                }
+                document.getElementById('login-error').classList.add('hidden');
+                
+                // Transition effect
+                document.getElementById('login-view').classList.add('opacity-0');
+                setTimeout(() => {
+                    showDashboard();
+                    // Refresh data
+                    loadStats();
+                    renderTable();
+                    renderCharts();
+                }, 300);
+            } else {
+                const errDiv = document.getElementById('login-error');
+                errDiv.classList.remove('hidden');
+                errDiv.classList.add('animate-shake');
+                setTimeout(() => errDiv.classList.remove('animate-shake'), 500);
+            }
+        }
+
+        function handleLogout() {
+            sessionStorage.removeItem('adminSession');
+            localStorage.removeItem('adminRememberSession');
+            showLogin();
+        }
+
+        // Auto login if remember me was checked
+        if (localStorage.getItem('adminRememberSession') === 'active') {
+            sessionStorage.setItem('adminSession', 'active');
+        }
+
+
+        // ------------------ MOCK DATABASE SEEDING ------------------
+        function initMockDatabase() {
+            let admissions = localStorage.getItem('university_admissions');
+            if (!admissions) {
+                const mockList = [
+                    {
+                        id: 'ALH-2026-1092',
+                        name: 'أحمد مصطفى الفيتوري',
+                        nationalId: '120010492819',
+                        email: 'ahmed.fitori@gmail.com',
+                        phone: '0917263548',
+                        college: 'كلية تقنية المعلومات',
+                        gradYear: '2024',
+                        files: [
+                            {name: 'الشهادة_الثانوية_الفيتوري.pdf', size: '1.20 MB'},
+                            {name: 'الرقم_الوطني_أحمد.pdf', size: '0.45 MB'}
+                        ],
+                        date: new Date(Date.now() - 4 * 3600000).toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                        status: 'Accepted',
+                        notes: 'معدله 94%، تم قبول الشهادة وتطابق الرقم الوطني مع الهوية الشخصية.'
+                    },
+                    {
+                        id: 'ALH-2026-2918',
+                        name: 'سارة علي بن حليم',
+                        nationalId: '220029381734',
+                        email: 'sara.halim@live.com',
+                        phone: '0928374615',
+                        college: 'كلية الهندسة والتقنية',
+                        gradYear: '2025',
+                        files: [
+                            {name: 'شهادة_إتمام_الثانوية_سارة.jpg', size: '2.10 MB'},
+                            {name: 'مرفق_الرقم_الوطني.jpg', size: '0.80 MB'}
+                        ],
+                        date: new Date(Date.now() - 18 * 3600000).toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                        status: 'Pending',
+                        notes: ''
+                    },
+                    {
+                        id: 'ALH-2026-4819',
+                        name: 'عبد الرحمن صالح العقوري',
+                        nationalId: '119992837461',
+                        email: 'abdo.agouri@hadhara.edu',
+                        phone: '0916452739',
+                        college: 'كلية القانون',
+                        gradYear: '2023',
+                        files: [
+                            {name: 'الشهادة الثانوية العامة.pdf', size: '1.80 MB'},
+                            {name: 'البطاقة_الشخصية.jpg', size: '0.95 MB'}
+                        ],
+                        date: new Date(Date.now() - 48 * 3600000).toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                        status: 'Study',
+                        notes: 'الملفات سليمة ولكن يحتاج إلى إرفاق صورة شخصية رسمية أوضح بخلفية بيضاء.'
+                    },
+                    {
+                        id: 'ALH-2026-7281',
+                        name: 'فاطمة خالد التاورغي',
+                        nationalId: '220038472910',
+                        email: 'fatima.tawerghi@outlook.com',
+                        phone: '0929384756',
+                        college: 'كلية الاقتصاد والعلوم السياسية',
+                        gradYear: '2024',
+                        files: [
+                            {name: 'أوراق_الشهادة_الثانوية.pdf', size: '3.10 MB'},
+                            {name: 'الرقم_الوطني_الرسمي.pdf', size: '0.50 MB'}
+                        ],
+                        date: new Date(Date.now() - 96 * 3600000).toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                        status: 'Accepted',
+                        notes: 'تم فحص ومطابقة كشوفات الدرجات، كل الأوراق معتمدة ومستوفية لشروط القبول.'
+                    },
+                    {
+                        id: 'ALH-2026-9281',
+                        name: 'محمد سالم الكاديكي',
+                        nationalId: '120003847291',
+                        email: 'm.kadeki@gmail.com',
+                        phone: '0915382910',
+                        college: 'كلية تقنية المعلومات',
+                        gradYear: '1998',
+                        files: [
+                            {name: 'شهادة_ثانوية_قديمة.pdf', size: '1.45 MB'},
+                            {name: 'شهادة_الميلاد.jpg', size: '0.62 MB'}
+                        ],
+                        date: new Date(Date.now() - 120 * 3600000).toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                        status: 'Rejected',
+                        notes: 'سنة التخرج قديمة جداً ولا تتوافق مع لوائح التنسيق المباشر لهذا العام. تم توجيهه للتعليم الموازي.'
+                    }
+                ];
+                localStorage.setItem('university_admissions', JSON.stringify(mockList));
+            }
+        }
+
+
+        // ------------------ TAB NAVIGATION ------------------
+        let currentTab = 'overview';
+        function switchTab(tabName) {
+            currentTab = tabName;
+            
+            // Hide all tab content
+            document.getElementById('tab-content-overview').classList.add('hidden');
+            document.getElementById('tab-content-applications').classList.add('hidden');
+            
+            // Remove active style from sidebars
+            document.getElementById('tab-btn-overview').classList.remove('active');
+            document.getElementById('tab-btn-applications').classList.remove('active');
+            document.getElementById('tab-btn-overview').classList.add('hover:bg-white/5');
+            document.getElementById('tab-btn-applications').classList.add('hover:bg-white/5');
+
+            // Show current content & style current button
+            document.getElementById(`tab-content-${tabName}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('hover:bg-white/5');
+
+            // Set Title
+            const titleEl = document.getElementById('page-title');
+            const subtitleEl = document.getElementById('page-subtitle');
+            if (tabName === 'overview') {
+                titleEl.innerText = 'نظرة عامة';
+                subtitleEl.innerText = 'مرحباً بك في لوحة تحكم إدارة طلبات جامعة الحاضرة';
+            } else {
+                titleEl.innerText = 'طلبات التسجيل المتقدمة';
+                subtitleEl.innerText = 'عرض طلبات الطلاب المتقدمين والتعديل عليها وتصفيتها';
+            }
+
+            // Reload content
+            loadStats();
+            renderTable();
+            renderCharts();
+        }
+
+
+        // ------------------ CORE ACTIONS & UI RENDERING ------------------
+        let allApplications = [];
+        
+        function getApplications() {
+            return JSON.parse(localStorage.getItem('university_admissions') || '[]');
+        }
+
+        function loadStats() {
+            allApplications = getApplications();
+            
+            const total = allApplications.length;
+            const pending = allApplications.filter(a => a.status === 'Pending').length;
+            const accepted = allApplications.filter(a => a.status === 'Accepted').length;
+            const rejected = allApplications.filter(a => a.status === 'Rejected').length;
+            
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-pending').innerText = pending;
+            document.getElementById('stat-accepted').innerText = accepted;
+            document.getElementById('stat-rejected').innerText = rejected;
+            
+            document.getElementById('badge-total-count').innerText = total;
+        }
+
+        const statusBadges = {
+            'Pending': '<span class="px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-xs font-bold inline-block">قيد الانتظار</span>',
+            'Accepted': '<span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold inline-block">مقبول</span>',
+            'Rejected': '<span class="px-3 py-1 rounded-full bg-red-100 text-red-600 text-xs font-bold inline-block">مرفوض</span>',
+            'Study': '<span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold inline-block">قيد الدراسة</span>'
+        };
+
+        function renderTable() {
+            allApplications = getApplications();
+            
+            // Render Recent list on Overview Tab
+            const recentBody = document.getElementById('recent-admissions-tbody');
+            recentBody.innerHTML = '';
+            
+            const recentList = allApplications.slice(0, 5);
+            recentList.forEach(app => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-surface-container-low transition-colors";
+                tr.innerHTML = `
+                    <td class="py-4 font-bold text-primary">${app.name}</td>
+                    <td class="py-4 text-on-surface-variant">${app.college}</td>
+                    <td class="py-4 text-on-surface-variant">${app.date}</td>
+                    <td class="py-4 text-center">${statusBadges[app.status] || app.status}</td>
+                    <td class="py-4 text-left">
+                        <button onclick="openDetails('${app.id}')" class="px-3 py-1 bg-surface border border-outline-variant hover:bg-primary hover:text-white rounded-lg text-xs font-bold transition-all">مراجعة</button>
+                    </td>
+                `;
+                recentBody.appendChild(tr);
+            });
+            if (recentList.length === 0) {
+                recentBody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-on-surface-variant">لا توجد طلبات مسجلة حتى الآن.</td></tr>`;
+            }
+
+            // Render main filter table on Applications tab
+            filterApplications();
+        }
+
+        function filterApplications() {
+            const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+            const collegeFilter = document.getElementById('college-filter').value;
+            const statusFilter = document.getElementById('status-filter').value;
+            
+            allApplications = getApplications();
+            
+            const filtered = allApplications.filter(app => {
+                const matchesSearch = app.name.toLowerCase().includes(searchQuery) || app.nationalId.includes(searchQuery);
+                const matchesCollege = collegeFilter === "" || app.college === collegeFilter;
+                const matchesStatus = statusFilter === "" || app.status === statusFilter;
+                return matchesSearch && matchesCollege && matchesStatus;
+            });
+            
+            const tableBody = document.getElementById('applications-table-body');
+            const emptyState = document.getElementById('table-empty-state');
+            tableBody.innerHTML = '';
+            
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                
+                filtered.forEach(app => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-surface-container-low transition-colors";
+                    tr.innerHTML = `
+                        <td class="p-4 font-mono text-xs tracking-wider text-on-surface-variant">${app.id}</td>
+                        <td class="p-4 font-bold text-primary">${app.name}</td>
+                        <td class="p-4 text-on-surface-variant">${app.nationalId}</td>
+                        <td class="p-4 font-semibold text-primary">${app.college}</td>
+                        <td class="p-4 text-on-surface-variant text-xs">${app.date}</td>
+                        <td class="p-4 text-center">${statusBadges[app.status] || app.status}</td>
+                        <td class="p-4 text-left">
+                            <button onclick="openDetails('${app.id}')" class="px-4 py-1.5 bg-primary text-white hover:bg-primary-container rounded-lg text-xs font-bold transition-all shadow-sm">عرض ومراجعة</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            }
+        }
+
+        function renderCharts() {
+            allApplications = getApplications();
+            
+            // Count per college
+            const counts = {};
+            const colleges = [
+                'كلية الهندسة والتقنية',
+                'كلية الاقتصاد والعلوم السياسية',
+                'كلية تقنية المعلومات',
+                'كلية الآداب والعلوم',
+                'كلية القانون'
+            ];
+            colleges.forEach(c => counts[c] = 0);
+            
+            allApplications.forEach(app => {
+                if (counts[app.college] !== undefined) {
+                    counts[app.college]++;
+                }
+            });
+            
+            const container = document.getElementById('college-chart-container');
+            container.innerHTML = '';
+            
+            const maxVal = Math.max(...Object.values(counts), 1);
+            
+            colleges.forEach(college => {
+                const count = counts[college];
+                const pct = (count / maxVal) * 100;
+                
+                const div = document.createElement('div');
+                div.className = "space-y-1.5";
+                div.innerHTML = `
+                    <div class="flex justify-between text-xs font-semibold">
+                        <span class="text-primary">${college}</span>
+                        <span class="text-secondary font-bold">${count} طلب</span>
+                    </div>
+                    <div class="w-full bg-surface-container-high rounded-full h-3.5 overflow-hidden">
+                        <div class="bg-primary rounded-full h-full transition-all duration-700" style="width: ${pct}%"></div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+
+        // ------------------ MOCK GENERATOR FOR TESTING ------------------
+        function addMockApplication() {
+            const femaleNames = ['نجاة المسماري', 'ريما الكوافي', 'مروة الورفلي', 'سناء المغربي', 'ملاك الترهوني'];
+            const maleNames = ['علي فرج الزوي', 'مفتاح ونيس الجبالي', 'خالد عمران الفاخري', 'سند إدريس البرعصي', 'عمران المهدي السعيطي'];
+            const colleges = [
+                'كلية الهندسة والتقنية',
+                'كلية الاقتصاد والعلوم السياسية',
+                'كلية تقنية المعلومات',
+                'كلية الآداب والعلوم',
+                'كلية القانون'
+            ];
+            
+            const isMale = Math.random() > 0.5;
+            const name = isMale 
+                ? maleNames[Math.floor(Math.random() * maleNames.length)] + ' ' + maleNames[Math.floor(Math.random() * maleNames.length)].split(' ')[2]
+                : femaleNames[Math.floor(Math.random() * femaleNames.length)] + ' ' + maleNames[Math.floor(Math.random() * maleNames.length)].split(' ')[2];
+            
+            const randNat = Math.floor(100000000000 + Math.random() * 900000000000);
+            const phone = '09' + (Math.random() > 0.5 ? '1' : '2') + Math.floor(1000000 + Math.random() * 9000000);
+            const college = colleges[Math.floor(Math.random() * colleges.length)];
+            const randYear = Math.floor(2020 + Math.random() * 7);
+            
+            const fileMock = [
+                {name: 'الشهادة_الثانوية_كاملة.pdf', size: '1.58 MB'},
+                {name: 'كتيب_العائلة_الرقم_الوطني.jpg', size: '0.75 MB'}
+            ];
+            
+            const randId = Math.floor(1000 + Math.random() * 9000);
+            const newApp = {
+                id: `ALH-2026-${randId}`,
+                name: name,
+                nationalId: String(randNat),
+                email: name.replace(/\s+/g, '.').toLowerCase() + '@mail.ly',
+                phone: phone,
+                college: college,
+                gradYear: String(randYear),
+                files: fileMock,
+                date: new Date().toLocaleDateString('ar-LY', {year: 'numeric', month: 'long', day: 'numeric'}),
+                status: 'Pending',
+                notes: ''
+            };
+            
+            let list = getApplications();
+            list.unshift(newApp);
+            localStorage.setItem('university_admissions', JSON.stringify(list));
+            
+            loadStats();
+            renderTable();
+            renderCharts();
+        }
+
+
+        // ------------------ MODAL DETAIL MANAGEMENT ------------------
+        let activeApplicationId = null;
+
+        function openDetails(appId) {
+            activeApplicationId = appId;
+            const admissions = getApplications();
+            const app = admissions.find(a => a.id === appId);
+            
+            if (!app) return;
+
+            document.getElementById('detail-ref-id').innerText = app.id;
+            document.getElementById('detail-name').innerText = app.name;
+            document.getElementById('detail-national-id').innerText = app.nationalId;
+            document.getElementById('detail-phone').innerText = app.phone;
+            document.getElementById('detail-email').innerText = app.email;
+            document.getElementById('detail-college').innerText = app.college;
+            document.getElementById('detail-grad-year').innerText = app.gradYear;
+            document.getElementById('detail-date').innerText = app.date;
+            document.getElementById('detail-notes').value = app.notes || '';
+            document.getElementById('detail-status-select').value = app.status;
+
+            // Communication button links
+            document.getElementById('quick-email-btn').href = `mailto:${app.email}?subject=تحديث بخصوص طلب تسجيلك في جامعة الحاضرة - رقم ${app.id}&body=عزيزي الطالب / عزيزتي الطالبة ${app.name}،%0D%0A%0D%0Aنود إفادتك بخصوص طلب التحاقك بـ ${app.college} في جامعة الحاضرة فرع بنغازي...`;
+            document.getElementById('quick-call-btn').href = `tel:${app.phone}`;
+
+            // Attachments rendering
+            const attachContainer = document.getElementById('detail-attachments-list');
+            attachContainer.innerHTML = '';
+            
+            app.files.forEach(file => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between p-3.5 bg-white border border-outline-variant/30 rounded-xl shadow-sm hover:shadow-md transition-shadow";
+                item.innerHTML = `
+                    <div class="flex items-center gap-2 overflow-hidden">
+                        <span class="material-symbols-outlined text-primary text-3xl">picture_as_pdf</span>
+                        <div class="text-right overflow-hidden">
+                            <span class="text-xs font-bold text-primary block truncate max-w-[150px] sm:max-w-[200px]" title="${file.name}">${file.name}</span>
+                            <span class="text-[10px] text-on-surface-variant font-semibold">${file.size}</span>
+                        </div>
+                    </div>
+                    <button onclick="alert('جاري محاكاة تنزيل الملف: ${file.name}')" class="p-2 text-primary hover:text-secondary hover:bg-surface-container rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                    </button>
+                `;
+                attachContainer.appendChild(item);
+            });
+
+            // Show Modal with transition
+            const modal = document.getElementById('details-modal');
+            const card = document.getElementById('details-modal-card');
+            
+            modal.classList.remove('hidden');
+            modal.offsetHeight; // Reflow
+            
+            modal.classList.add('opacity-100');
+            card.classList.remove('scale-95', 'opacity-0');
+            card.classList.add('scale-100', 'opacity-100');
+        }
+ 
+        function closeDetailsModal() {
+            const modal = document.getElementById('details-modal');
+            const card = document.getElementById('details-modal-card');
+            
+            modal.classList.remove('opacity-100');
+            card.classList.remove('scale-100', 'opacity-100');
+            card.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                activeApplicationId = null;
+            }, 300);
+        }
+
+        function saveApplicationChanges() {
+            if (!activeApplicationId) return;
+            
+            const newStatus = document.getElementById('detail-status-select').value;
+            const newNotes = document.getElementById('detail-notes').value;
+            
+            let admissions = getApplications();
+            const index = admissions.findIndex(a => a.id === activeApplicationId);
+            
+            if (index !== -1) {
+                admissions[index].status = newStatus;
+                admissions[index].notes = newNotes;
+                localStorage.setItem('university_admissions', JSON.stringify(admissions));
+                
+                closeDetailsModal();
+                loadStats();
+                renderTable();
+                renderCharts();
+            }
+        }
+
+        function deleteApplication() {
+            if (!activeApplicationId) return;
+            
+            if (confirm('هل أنت متأكد من رغبتك في حذف هذا الطلب نهائياً من النظام؟ لا يمكن التراجع عن هذا الإجراء.')) {
+                let admissions = getApplications();
+                const filtered = admissions.filter(a => a.id !== activeApplicationId);
+                localStorage.setItem('university_admissions', JSON.stringify(filtered));
+                
+                closeDetailsModal();
+                loadStats();
+                renderTable();
+                renderCharts();
+            }
+        }
+
+        // Dark Mode Logic
+        function initTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                updateThemeToggleIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeToggleIcons(false);
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeToggleIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeToggleIcons(true);
+            }
+        }
+
+        function updateThemeToggleIcons(isDark) {
+            const icons = document.querySelectorAll('.theme-toggle-icon');
+            icons.forEach(icon => {
+                icon.innerText = isDark ? 'light_mode' : 'dark_mode';
+            });
+        }
+        
+        // Load preference
+        window.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+</body>
+</html>

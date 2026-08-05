@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>جامعة الحاضرة - فرع بنغازي</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#d5e3fd",
+                        "primary": "#002045",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#9c9fa1",
+                        "primary-container": "#1a365d",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container": "#e6eeff",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d5e3fd",
+                        "on-primary-container": "#86a0cd",
+                        "inverse-surface": "#233144",
+                        "surface-container-low": "#eff4ff",
+                        "inverse-primary": "#adc7f7",
+                        "secondary": "#735c00",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ccdbf4",
+                        "tertiary": "#1d2123",
+                        "on-background": "#0d1c2f",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-tint": "#455f88",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fed65b",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#333638",
+                        "on-tertiary-fixed": "#191c1e",
+                        "outline-variant": "#c4c6cf",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "secondary-fixed": "#ffe088",
+                        "on-surface": "#0d1c2f",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "outline": "#74777f",
+                        "inverse-on-surface": "#ebf1ff",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dde9ff",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#241a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base-unit": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Cairo"],
+                        "display-lg": ["Cairo"],
+                        "body-md": ["Cairo"],
+                        "headline-md": ["Cairo"],
+                        "label-sm": ["Cairo"],
+                        "display-lg-mobile": ["Cairo"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-gradient {
+            background: linear-gradient(to left, rgba(0, 32, 69, 0.9), rgba(0, 32, 69, 0.4));
+        }
+        
+        /* Dark Mode overrides */
+        .dark body, .dark main {
+            background-color: #0b0f19 !important;
+            color: #f8fafc !important;
+        }
+        .dark header, .dark nav {
+            background-color: rgba(11, 15, 25, 0.9) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .bg-white, .dark .bg-surface-container-lowest, .dark .bg-surface, .dark .bg-surface-bright {
+            background-color: #121826 !important;
+            color: #f8fafc !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .text-primary, .dark h1, .dark h2, .dark h3, .dark h4 {
+            color: #adc7f7 !important;
+        }
+        .dark .text-on-surface-variant {
+            color: #94a3b8 !important;
+        }
+        .dark input, .dark select, .dark textarea {
+            background-color: #1e293b !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        .dark .bg-surface-container-low, .dark .bg-surface-container, .dark .bg-surface-container-high, .dark .bg-surface-container-highest {
+            background-color: #1e293b !important;
+            color: #f8fafc !important;
+        }
+        .dark .text-secondary {
+            color: #ffe088 !important;
+        }
+        .dark .border-secondary {
+            border-color: #ffe088 !important;
+        }
+        .dark .bg-secondary {
+            background-color: #735c00 !important;
+            color: #ffffff !important;
+        }
+        .dark .bg-primary {
+            background-color: #0b0f19 !important;
+            color: #f8fafc !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm h-20">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-full">
+<div class="flex items-center gap-8">
+<a class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                    جامعة الحاضرة
+                </a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-lg text-body-lg text-secondary border-b-2 border-secondary font-bold pb-1 cursor-pointer active:scale-95" href="code.html">الرئيسية</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 hover:scale-105" href="../_1/code.html">عن الجامعة</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 hover:scale-105" href="../_5/code.html">الكليات</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 hover:scale-105" href="../_11/code.html">القبول</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="toggleTheme()" class="flex items-center justify-center p-2 rounded-full border border-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined theme-toggle-icon">dark_mode</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">language</span>
+<span>Ar/En</span>
+</button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A majestic aerial view of a modern university campus in Benghazi during golden hour. The architecture blends contemporary glass structures with traditional Libyan motifs. The lighting is warm and inviting, highlighting the lush green courtyards and organized pathways. The overall mood is prestigious, academic, and innovative, aligned with a deep blue and gold professional palette." style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full text-white">
+<div class="max-w-2xl space-y-6 reveal active">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">فرع بنغازي - صرح العلم والمعرفة</span>
+<h1 class="font-display-lg text-display-lg md:text-[64px] leading-tight">نبني مستقبلاً يزخر بالإبداع والتميز الأكاديمي</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-xl">
+                    انضم إلى مجتمعنا التعليمي المتميز حيث نجمع بين التراث العريق والابتكار الحديث لتخريج قادة الغد في قلب مدينة بنغازي.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="../_11/code.html#register-form" class="px-8 py-4 bg-secondary text-on-primary rounded-xl font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg cursor-pointer">
+<span>سجل الآن</span>
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<button class="px-8 py-4 border-2 border-white/30 backdrop-blur-sm text-white rounded-xl font-bold hover:bg-white/10 transition-all">
+                        تعرف على برامجنا
+                    </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 right-10 z-10 flex gap-4 md:flex-col">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-white text-sm">face_nod</span></a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-white text-sm">share</span></a>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-20 bg-surface-container-lowest relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center p-8 rounded-2xl bg-white border border-outline-variant/30 shadow-sm reveal active">
+<div class="text-secondary mb-4 flex justify-center">
+<span class="material-symbols-outlined text-5xl">groups</span>
+</div>
+<div class="text-4xl font-bold text-primary mb-2 counter" data-target="3500">0</div>
+<div class="text-on-surface-variant font-label-sm">طالب وطالبة</div>
+</div>
+<div class="text-center p-8 rounded-2xl bg-white border border-outline-variant/30 shadow-sm reveal active" style="transition-delay: 100ms">
+<div class="text-secondary mb-4 flex justify-center">
+<span class="material-symbols-outlined text-5xl">school</span>
+</div>
+<div class="text-4xl font-bold text-primary mb-2 counter" data-target="120">0</div>
+<div class="text-on-surface-variant font-label-sm">عضو هيئة تدريس</div>
+</div>
+<div class="text-center p-8 rounded-2xl bg-white border border-outline-variant/30 shadow-sm reveal active" style="transition-delay: 200ms">
+<div class="text-secondary mb-4 flex justify-center">
+<span class="material-symbols-outlined text-5xl">auto_stories</span>
+</div>
+<div class="text-4xl font-bold text-primary mb-2 counter" data-target="18">0</div>
+<div class="text-on-surface-variant font-label-sm">برنامج أكاديمي</div>
+</div>
+<div class="text-center p-8 rounded-2xl bg-white border border-outline-variant/30 shadow-sm reveal active" style="transition-delay: 300ms">
+<div class="text-secondary mb-4 flex justify-center">
+<span class="material-symbols-outlined text-5xl">workspace_premium</span>
+</div>
+<div class="text-4xl font-bold text-primary mb-2 counter" data-target="1500">0</div>
+<div class="text-on-surface-variant font-label-sm">خريج متميز</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Upcoming Events -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-display-lg text-headline-md text-primary">الفعاليات القادمة</h2>
+<div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Event Item -->
+<div class="flex bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group reveal active">
+<div class="w-1/3 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="A close-up shot of a modern digital workspace featuring a laptop, a notebook with diagrams, and architectural blueprints on a clean white desk. The lighting is bright and airy, typical of a high-end academic environment. The focus is sharp on the student's hands drawing a layout, symbolizing innovation and design at Al-Hadhara University." style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute top-4 right-4 bg-white rounded-lg p-2 text-center min-w-[60px]">
+<span class="block text-xl font-bold text-primary">20</span>
+<span class="block text-xs text-on-surface-variant">يونيو</span>
+</div>
+</div>
+<div class="p-8 w-2/3 space-y-4">
+<h3 class="font-bold text-xl text-primary">ورشة عمل: ريادة الأعمال للشباب</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>القاعة الكبرى - مبنى الإدارة</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>10:00 صباحاً - 2:00 ظهراً</span>
+</div>
+<p class="text-on-surface-variant text-sm">جلسة نقاشية مفتوحة مع خبراء السوق المحلي حول فرص الاستثمار والنمو...</p>
+<button class="text-secondary font-bold hover:gap-4 transition-all flex items-center gap-2">احجز مقعدك <span class="material-symbols-outlined">arrow_back</span></button>
+</div>
+</div>
+<!-- Event Item -->
+<div class="flex bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group reveal active" style="transition-delay: 200ms">
+<div class="w-1/3 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="A wide shot of a university seminar hall during a guest lecture. A diverse group of attentive students are listening to a speaker in the background. The hall has high ceilings, wooden paneling, and warm amber lighting, creating an atmosphere of serious academic discourse. The focus is slightly on the silhouettes of students in the foreground, using a professional shallow depth of field." style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute top-4 right-4 bg-white rounded-lg p-2 text-center min-w-[60px]">
+<span class="block text-xl font-bold text-primary">25</span>
+<span class="block text-xs text-on-surface-variant">يونيو</span>
+</div>
+</div>
+<div class="p-8 w-2/3 space-y-4">
+<h3 class="font-bold text-xl text-primary">الملتقى الهندسي السنوي الرابع</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>مسرح كلية الهندسة</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>09:00 صباحاً</span>
+</div>
+<p class="text-on-surface-variant text-sm">عرض لمشاريع تخرج الطلاب المتميزة واستضافة مكاتب استشارية كبرى...</p>
+<button class="text-secondary font-bold hover:gap-4 transition-all flex items-center gap-2">تفاصيل الفعالية <span class="material-symbols-outlined">arrow_back</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners & Accreditation -->
+<section class="py-16 bg-white border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h3 class="text-center text-on-surface-variant font-label-sm mb-10 opacity-70">اعتماداتنا وشراكاتنا الأكاديمية</h3>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="h-16 w-32 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl">verified</span>
+<span class="font-bold text-primary">وزارة التعليم</span>
+</div>
+<div class="h-16 w-32 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl">public</span>
+<span class="font-bold text-primary">UNESCO</span>
+</div>
+<div class="h-16 w-32 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl">diversity_3</span>
+<span class="font-bold text-primary">مجلس الجامعات</span>
+</div>
+<div class="h-16 w-32 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl">shield</span>
+<span class="font-bold text-primary">الجودة المحلية</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full mt-20 bg-primary border-t-4 border-secondary-container">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop py-16">
+<div class="space-y-6">
+<div class="text-headline-md font-headline-md text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+                    جامعة الحاضرة
+                </div>
+<p class="text-primary-fixed-dim font-body-md">منارة للعلم في قلب بنغازي، نسعى لتمكين العقول وبناء غدٍ أفضل لليبيا من خلال تعليم عصري ومعايير عالمية.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors cursor-pointer" href="#"><span class="material-symbols-outlined text-sm">face_nod</span></a>
+<a class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors cursor-pointer" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold text-lg">روابط سريعة</h4>
+<ul class="space-y-3">
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">الرؤية والرسالة</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">خارطة الموقع</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">سياسة الخصوصية</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">التحقق من الشهادات</a></li>
+<li><a class="text-secondary-fixed hover:text-on-primary font-bold transition-colors cursor-pointer hover:translate-x-1 inline-block" href="admin.html">بوابة الإدارة (لوحة التحكم)</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold text-lg">الكليات</h4>
+<ul class="space-y-3">
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">كلية الهندسة</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">كلية تقنية المعلومات</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">كلية الاقتصاد والعلوم الإدارية</a></li>
+<li><a class="text-primary-fixed-dim hover:text-on-primary transition-colors cursor-pointer hover:translate-x-1 inline-block" href="#">كلية اللغات</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold text-lg">تواصل معنا</h4>
+<div class="space-y-4 text-primary-fixed-dim">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">location_on</span>
+<span>بنغازي - منطقة فينيسيا، خلف عيادة بنغازي الحديثة</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">phone</span>
+<span dir="ltr">+218 91 123 4567</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">mail</span>
+<span>info@alhadhara.edu.ly</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/10">
+<p class="text-center text-primary-fixed-dim text-sm">
+                © 2024 جامعة الحاضرة - فرع بنغازي. جميع الحقوق محفوظة.
+            </p>
+</div>
+</footer>
+<!-- FAB for Admission -->
+<a href="../_11/code.html#register-form" class="fixed bottom-8 left-8 w-16 h-16 bg-secondary text-white rounded-full shadow-2xl flex items-center justify-center group hover:w-48 transition-all duration-300 z-50">
+<span class="material-symbols-outlined text-3xl group-hover:ml-2">app_registration</span>
+<span class="hidden group-hover:inline font-bold whitespace-nowrap overflow-hidden">قدم الآن</span>
+</a>
+<script>
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Intersection Observer for counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelector('.counter').parentElement.parentElement.parentElement.querySelectorAll('.counter').forEach(el => observer.observe(el));
+
+        // Dark Mode Logic
+        function initTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                updateThemeToggleIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeToggleIcons(false);
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeToggleIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeToggleIcons(true);
+            }
+        }
+
+        function updateThemeToggleIcons(isDark) {
+            const icons = document.querySelectorAll('.theme-toggle-icon');
+            icons.forEach(icon => {
+                icon.innerText = isDark ? 'light_mode' : 'dark_mode';
+            });
+        }
+        
+        // Load theme preferences
+        initTheme();
+    </script>
+</body></html>
